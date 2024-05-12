@@ -1,0 +1,78 @@
+table, th, td {
+        border: 1px solid;
+        border-collapse: collapse;
+    }    
+
+.book {
+    position: relative;
+    box-sizing: border-box;
+    width: 400px;
+    height: 450px;
+    margin: 100px auto;
+    padding-bottom: 10px;
+    background-color: #000;
+    box-shadow: -2px 0 0 0 #000,2px 5px 1px 4px rgba(0,0,0,.2);
+  
+    -webkit-perspective: 1000px;
+            perspective: 1000px;
+    -webkit-perspective-origin: 0 150%;
+            perspective-origin: 0 150%;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+  }
+  .book-inbox {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 20px;
+    transition: all 1.8s ease;
+    transition-delay: .3s;
+    background-color: #fff;
+    box-shadow: 0 8px 0 0 #afada3,200px 0 1px 0 rgba(0,0,0,.4) inset,-2px 0 0 0 #000;
+  }
+  .book:hover .book-inbox {
+    box-shadow: 0 8px 0 0 #afada3,-0 0 8px 0 rgba(0,0,0,.0) inset,-2px 0 0 0 #000;
+  }
+  .book::before, .book::after {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: calc( 100% - 10px);
+    -webkit-transition: all 2.5s ease;
+            transition: all 2.5s ease;
+    -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+  }
+  .book::before {
+        font-size: 3em;
+        position: absolute; /* 追加 */
+        content: 'DEATH NOTE';
+        top: 10px; /* この値を調整してください */
+        -webkit-transform: rotateY(0deg) translateZ(1px);
+                transform: rotateY(0deg) translateZ(1px);
+                
+        text-align: center;
+        color: #fff;
+        background-color: #000;
+        box-shadow: 0 2px 0 0 #333;
+        text-shadow: -1px -1px 0 rgba(0,0,0,.4);
+        
+    }
+    
+  .book::after {
+    content: '';
+    -webkit-transform: rotateY(0deg) translateZ(0px);
+            transform: rotateY(0deg) translateZ(0px);
+    background-color: #000;
+  }
+  .book:hover::before, .book:active::before {
+    -webkit-transform: rotateY(-185deg) translateZ(1px);
+            transform: rotateY(-185deg) translateZ(1px);
+  }
+  .book:hover::after {
+    -webkit-transform: rotateY(-185deg) translateZ(0px);
+            transform: rotateY(-185deg) translateZ(0px);
+    background-color: #000;
+  }
